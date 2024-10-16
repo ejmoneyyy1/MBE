@@ -1,0 +1,472 @@
+/* General Reset and Black Background */
+html, body {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Section Styling */
+#hero {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-image: url('images/background1.jpg'); /* Initial image */
+  transition: background-image 1s ease-in-out; /* Smooth image transition */
+  background-attachment: fixed; /* Optional: for parallax effect */
+}
+
+.hero-content {
+  z-index: 2; /* Ensure content appears above the background */
+  text-align: center;
+  color: white;
+}
+
+h1, p {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Add text shadow to make it readable */
+}
+
+/* Fading Animation */
+.fade-in {
+  animation: fadeInEffect 1s ease-in-out;
+}
+
+@keyframes fadeInEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background-color: #000000;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+header .logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #d4a373;
+}
+
+/* Badge container for alignment */
+.badge-container {
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  background-color: #000; /* black background */
+  color: #fff; /* white text */
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.discontinued {
+  font-size: 1.2rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: #ff00007b; /* Red to emphasize discontinued */
+}
+
+.badge-title {
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #faedcd;
+}
+
+nav ul li a.active {
+  color: #d4a373;
+  font-weight: bold;
+  border-bottom: 2px solid #d4a373;
+}
+
+/* Hero Section */
+#hero {
+  height: 100vh; /* Full viewport height */
+  background: url('images/background.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+/* Call to Action Button */
+.cta-btn {
+  padding: 15px 40px;
+  background: #d4a373;
+  color: #ffffff;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #faedcd;
+  color: #000000;
+  transform: scale(1.05);
+}
+
+/* Collection Heading */
+#clothing h2 {
+  text-align: center;
+  color: #000000;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1px; /* Reduce the margin to close the gap */
+}
+
+/* Product Row */
+#product-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px;
+  background-color: #111;
+  border-bottom: 2px solid #222;
+  margin-top: 100px;
+}
+
+.product-row-item {
+  flex: 1 1 calc(25% - 30px);
+  max-width: 300px;
+  margin: 15px;
+  text-align: center;
+}
+
+.product-row-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-row-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.product-row-item h3 {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: #faedcd;
+}
+
+.product-row-item p {
+  font-size: 1.2rem;
+  color: #d4a373;
+}
+
+.product-row-item .cta-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d4a373;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-row-item .cta-btn:hover {
+  background-color: #faedcd;
+  color: #000000;
+  transform: scale(1.1);
+}
+
+/* Modal Styles for the Shopping Cart */
+.modal {
+  display: flex;
+  justify-content: center;  /* Centering modal */
+  align-items: center;      /* Centering modal vertically */
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);  /* Black background with opacity */
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: #111;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; /* Set a percentage width for responsiveness */
+  max-width: 500px; /* Limit the maximum width */
+  max-height: 80%; /* Add max height to avoid overflow */
+  overflow-y: auto; /* Enable scrolling if content exceeds modal height */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: center; /* Center text and elements inside modal */
+}
+
+.modal img {
+  max-width: 30px; /* Limit the size of images */
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Style for the trash icon (remove button) */
+.remove-btn {
+  background-color: transparent;
+  border: none;
+  color: #d4a373;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.remove-btn:hover {
+  color: #faedcd;
+}
+
+.remove-btn i {
+  font-size: 1.2rem;
+}
+
+/* Shopping Bag Icon Styles */
+.shopping-bag {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 24px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.shopping-bag i {
+  font-size: 2rem;
+}
+
+.shopping-bag .bag-count {
+  background-color: #ff0000;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 14px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+/* Checkout Button Style */
+.checkout-btn {
+  padding: 15px 30px;
+  background-color: #d4a373;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  margin-top: 30px;
+}
+
+.clear-cart-btn {
+  background-color: #d4a373;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+  background-color: #faedcd;
+  color: #000000;
+}
+
+button#exit-modal {
+  padding: 10px 20px;
+  background-color: #d4a373;
+  border-radius: 30px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+button#exit-modal:hover {
+  background-color: #faedcd;
+  color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  /* Logo size adjusted for mobile */
+  header .logo {
+    font-size: 2rem; /* Slightly smaller for mobile */
+  }
+
+  /* Navigation */
+  nav ul {
+    flex-direction: column; /* Stack vertically */
+    gap: 10px; /* Add space between links */
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ensure nav takes full width */
+    text-align: center; /* Center links for better mobile UX */
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    padding: 15px; /* Add more padding for tap-friendly buttons */
+    display: block; /* Ensure the links take full width */
+    font-size: 1.2rem; /* Make links slightly larger */
+  }
+
+  /* Hero Section - Make text smaller for mobile */
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Stack products vertically */
+  #product-row {
+    flex-direction: column;
+    align-items: center; /* Center products */
+  }
+
+  .product-row-item {
+    max-width: 100%; /* Full width for mobile */
+    margin-bottom: 20px; /* Space between stacked products */
+  }
+
+  /* YouTube Section Padding */
+  #youtube {
+    padding: 60px 20px; /* Adjust padding for mobile */
+  }
+
+  /* Contact Section Padding */
+  #contact {
+    padding: 60px 20px;
+    
+    /* Adjust padding for mobile */
+  }
+
+  /* Call-to-Action Button */
+  .cta-btn {
+    padding: 10px 30px;
+    font-size: 1rem; /* Adjust size for mobile */
+  }
+
+  /* Shopping Bag Icon - Resize for mobile */
+  .shopping-bag {
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+  }
+
+  .shopping-bag i {
+    font-size: 1.5rem;
+  }
+}
+/* Hidden class to hide elements by default */
+.hidden {
+  display: none;
+}
+
+/* Success message styling */
+.success-message {
+  color: green;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+}

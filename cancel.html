@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Canceled</title>
+  <style>
+    /* Popup styling */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f44336; /* Cancel color */
+      padding: 20px;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      display: none; /* Hidden initially */
+    }
+    .popup.show {
+      display: block;
+    }
+    .popup button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: white;
+      color: #f44336;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="popup" id="cancel-popup">
+  <h2>Payment Canceled</h2>
+  <p>You have canceled the payment.</p>
+  <button onclick="closePopup()">OK</button>
+</div>
+
+<script>
+  // Show the popup when the page loads
+  window.onload = function () {
+    document.getElementById('cancel-popup').classList.add('show');
+  };
+
+  // Function to close the popup
+  function closePopup() {
+    document.getElementById('cancel-popup').classList.remove('show');
+    window.location.href = "http://localhost:5500/index.html"; // Redirect to the homepage after closing the popup
+  }
+</script>
+
+</body>
+</html>

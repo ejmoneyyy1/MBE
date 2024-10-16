@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion Boyz Entertainment</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #000;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #d4a373;
+    }
+    
+    /* Shopping Cart Icon */
+    .cart-icon {
+      position: relative;
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    .cart-icon i {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    /* Style for the cart count bubble */
+    #cart-count {
+      background-color: #ff0000;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-size: 14px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+    
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('images/background.jpg') no-repeat center center/cover;
+    }
+
+    #hero .hero-content {
+      color: #fff;
+    }
+
+    .cta-btn {
+      padding: 15px 40px;
+      background: #d4a373;
+      color: #fff;
+      text-transform: uppercase;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #faedcd;
+      color: #000;
+    }
+
+    /* Brand Badges Section */
+    #brand-badges {
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+      background-color: #fff;
+    }
+
+    .badge-item {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .badge-item i {
+      font-size: 3rem;
+      color: #000;  /* Change badge icon color to black */
+      margin-bottom: 15px;
+    }
+
+    .badge-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .badge-item p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Cart Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+      color: white;
+    }
+
+    /* Buttons in Cart Modal */
+    .cta-btn, .buy-now-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #d4a373;
+      color: #fff;
+      text-transform: uppercase;
+      border-radius: 30px;
+      margin: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover, .buy-now-btn:hover {
+      background-color: #faedcd;
+      color: #000;
+    }
+
+    /* Checkout Page */
+    #checkout-page {
+      display: none;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    #checkout-page form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #checkout-page form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    #checkout-page form button {
+      width: 100%;
+      padding: 15px;
+      background-color: #d4a373;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #checkout-page form button:hover {
+      background-color: #faedcd;
+      color: #000;
+    }
+
+    /* YouTube Section */
+    #youtube {
+      background-color: #111;
+      padding: 80px 50px;
+      text-align: center;
+    }
+
+    #youtube h2 {
+      font-size: 2.5rem;
+      color: #d4a373;
+      margin-bottom: 40px;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 100px 50px;
+      background-color: #111;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #d4a373;
+    }
+
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #222;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    #contact form input,
+    #contact form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #333;
+      color: #fff;
+    }
+
+    #contact form button {
+      padding: 15px 30px;
+      background-color: #d4a373;
+      color: #ffffff;
+      border-radius: 30px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #contact form button:hover {
+      background-color: #faedcd;
+      color: #000000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="logo">MBE</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#clothing">Clothing</a></li>
+        <li><a href="#youtube">YouTube</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="badge-container">
+      <p class="discontinued">"DISCONTINUED."</p>  
+    </div>
+    
+
+    <!-- Shopping Bag Icon (Cart section) -->
+    <a href="#" id="cart-icon" class="cart-icon">
+      <i class="fas fa-shopping-bag"></i>
+      <span id="cart-count">0</span>
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Streetwear of the Future</h1>
+      <p>Explore the latest styles from Motion Boyz Entertainment.</p>
+      <a href="#clothing" class="cta-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Clothing Section -->
+  <section id="clothing">
+    <h2>Our Collection</h2>
+    <div id="product-row">
+      <!-- Product 1 -->
+      <div class="product-row-item">
+        <a href="images/product1.jpg" data-lightbox="product-row" data-title="Product 1">
+          <img src="images/product1.jpg" alt="Product 1" class="responsive">
+        </a>
+        <h3>Product 1</h3>
+        <p>$49.99</p>
+        <button class="cta-btn" onclick="addToCart('Product 1', 49.99)">Add to Cart</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-row-item">
+        <a href="images/product2.jpg" data-lightbox="product-row" data-title="Product 2">
+          <img src="images/product2.jpg" alt="Product 2" class="responsive">
+        </a>
+        <h3>Product 2</h3>
+        <p>$59.99</p>
+        <button class="cta-btn" onclick="addToCart('Product 2', 59.99)">Add to Cart</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-row-item">
+        <a href="images/product3.jpg" data-lightbox="product-row" data-title="Product 3">
+          <img src="images/product3.jpg" alt="Product 3"class="responsive">
+        </a>
+        <h3>Product 3</h3>
+        <p>$39.99</p>
+        <button class="cta-btn" onclick="addToCart('Product 3', 39.99)">Add to Cart</button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-row-item">
+        <a href="images/product4.jpg" data-lightbox="product-row" data-title="Product 4">
+          <img src="images/product4.jpg" alt="Product 4" class="responsive">
+        </a>
+        <h3>Product 4</h3>
+        <p>$29.99</p>
+        <button class="cta-btn" onclick="addToCart('Product 4', 29.99)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Section -->
+  <section id="youtube">
+    <h2>Watch MBE on YouTube</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/example-video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="MBE YouTube Video"></iframe>
+    </div>
+  </section>
+
+<!-- Contact Us Form -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form id="contact-form" action="/send-email" method="POST">
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="cta-btn">Send Message</button>
+  </form>
+  <p id="success-message" class="hidden success-message">Message sent successfully!</p>
+  <p id="error-message" class="hidden error-message">Failed to send message. Please try again later.</p>
+</section>
+
+
+ <!-- Shopping Cart Modal -->
+<div id="cart-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="toggleCartModal()">&times;</span> <!-- Close Button -->
+    <h2>Your Shopping Cart</h2>
+    
+    <!-- List of items in the cart -->
+    <ul id="cart-items"></ul>
+    
+    <!-- Total Price -->
+    <p id="total">Total: $0.00</p>
+    
+    <!-- Clear Cart Button -->
+    <button onclick="clearCart()" class="cta-btn clear-cart-btn">Clear Cart</button>
+    
+    <!-- Checkout Button -->
+    <button id="checkout-button" class="buy-now-btn">Checkout</button>
+    
+    <!-- Exit/Close Modal Button -->
+    <button class="cta-btn" onclick="toggleCartModal()">Exit</button>
+  </div>
+</div>
+
+  
+<!-- Ensure the payment modal is in your HTML -->
+<div id="payment-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+    <h2>Complete Your Purchase</h2>
+    <p>Confirm your payment to proceed.</p>
+    <button id="stripe-checkout" class="buy-now-btn">Proceed to Checkout</button>
+    <button class="cta-btn" onclick="closePaymentModal()">Cancel</button>
+  </div>
+</div>
+
+  <!-- Brand Badges Section -->
+  <section id="brand-badges">
+    <div class="badge-item">
+      <i class="fas fa-gem"></i>
+      <h3>Premium Quality</h3>
+      <p>Crafted with care for durability and luxury.</p>
+    </div>
+    <div class="badge-item">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Innovation</h3>
+      <p>Unique designs that reflect the latest trends.</p>
+    </div>
+    <div class="badge-item">
+      <i class="fas fa-tags"></i>
+      <h3>Affordability</h3>
+      <p>Fashion that doesn’t break the bank.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Motion Boys Entertainment</p>
+  </footer>
+
+  <!-- Smooth Scrolling Script -->
+  <script>
+    // Function to handle smooth scrolling
+    function smoothScroll(target) {
+      document.querySelector(target).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    // Function to toggle the mobile menu
+    function toggleMobileMenu() {
+      const menu = document.querySelector('nav ul');
+      menu.classList.toggle('active');
+    }
+
+    // Add event listeners to navigation links
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        smoothScroll(target);
+      });
+    });
+  </script>
+
+  <!-- Include other JS files -->
+  <script src="script.js"></script>
+  <script src="payment.js"></script>
+</body>
+</html>
