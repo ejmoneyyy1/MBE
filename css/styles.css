@@ -362,6 +362,14 @@ nav ul li a.active {
   z-index: 1000;
   cursor: pointer;
 }
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .shopping-bag {
+    bottom: 20px;  /* Move to bottom */
+    right: 20px;   /* Keep it on the right */
+    top: auto;     /* Disable the top positioning */
+    font-size: 20px; /* Adjust the size of the icon for mobile */
+  }
 
 .shopping-bag i {
   font-size: 2rem;
