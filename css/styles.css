@@ -1,11 +1,37 @@
 /* General Reset and Black Background */
+* {
+  box-sizing: border-box;
+}
 html, body {
   background-color: #000000;
   margin: 0;
+  max-width: 100vw; /* Limit the maximum width to 100% of the viewport width */
   padding: 0;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+}
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem; /* Reduce font size for better fit */
+  }
+
+  .some-element {
+    padding: 10px;
+    margin: 0; /* Prevent large margins */
+  }
+
+  /* Ensure images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 
@@ -391,6 +417,12 @@ button#exit-modal:hover {
   header .logo {
     font-size: 2rem; /* Slightly smaller for mobile */
   }
+
+  .some-element {
+    padding: 10px;
+    margin: 0 auto; /* Make sure margins are balanced */
+  }
+}
 
   /* Navigation */
   nav ul {
