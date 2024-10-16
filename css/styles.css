@@ -287,33 +287,44 @@ nav ul li a.active {
   transform: scale(1.1);
 }
 
-/* Modal Styles for the Shopping Cart */
+/* Shopping Cart Modal Styling */
 .modal {
-  display: flex;
-  justify-content: center;  /* Centering modal */
-  align-items: center;      /* Centering modal vertically */
+  display: none; /* Default to hidden */
   position: fixed;
-  z-index: 1001;
-  left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);  /* Black background with opacity */
-  padding: 20px;
+  left: 0;
+  width: 100vw; /* Ensure it takes the full viewport width */
+  height: 100vh; /* Ensure it takes the full viewport height */
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Ensure it's above all other elements */
 }
 
 .modal-content {
   background-color: #111;
-  margin: auto;
   padding: 20px;
   border-radius: 10px;
-  width: 80%; /* Set a percentage width for responsiveness */
-  max-width: 500px; /* Limit the maximum width */
-  max-height: 80%; /* Add max height to avoid overflow */
-  overflow-y: auto; /* Enable scrolling if content exceeds modal height */
+  width: 80%; /* Responsive width for modal */
+  max-width: 500px; /* Set a max width */
+  max-height: 80%; /* Avoid overflow on smaller screens */
+  overflow-y: auto; /* Enable scrolling for longer content */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  text-align: center; /* Center text and elements inside modal */
+  text-align: center;
+}
+
+/* Make sure the shopping cart icon or button is properly positioned */
+.shopping-bag {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  z-index: 1000; /* Ensure the cart icon is on top */
+  cursor: pointer;
+}
+
+.shopping-bag i {
+  font-size: 1.5rem;
 }
 
 .modal img {
