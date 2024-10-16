@@ -352,24 +352,28 @@ nav ul li a.active {
   font-size: 1.2rem;
 }
 
-/* Shopping Bag Icon Styles */
+/* Default (for desktop and larger screens) */
 .shopping-bag {
   position: fixed;
   top: 20px;
   right: 20px;
-  color: white;
   font-size: 24px;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it's on top of other elements */
   cursor: pointer;
 }
+
 /* For mobile devices (max-width: 768px) */
 @media (max-width: 768px) {
   .shopping-bag {
-    bottom: 20px;  /* Move to bottom */
-    right: 20px;   /* Keep it on the right */
-    top: auto;     /* Disable the top positioning */
-    font-size: 20px; /* Adjust the size of the icon for mobile */
+    position: fixed !important; /* Ensure the position is fixed */
+    bottom: 20px !important;    /* Move to the bottom */
+    right: 20px !important;     /* Align it to the right */
+    top: auto !important;       /* Disable the top positioning */
+    font-size: 20px !important; /* Adjust icon size for mobile */
+    z-index: 1000 !important;   /* Ensure it's on top */
   }
+}
+
 
 .shopping-bag i {
   font-size: 2rem;
