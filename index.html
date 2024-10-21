@@ -9,6 +9,21 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="https://js.stripe.com/v3/"></script>
+  <script>
+  // JavaScript to make the navigation bar smaller when scrolling
+  window.onscroll = function() { scrollFunction() };
+
+  function scrollFunction() {
+    const header = document.querySelector("header");
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+      header.style.padding = "10px 10px";  // Shrink the padding
+      header.querySelector(".logo").style.fontSize = "1.5rem";  // Reduce logo size
+    } else {
+      header.style.padding = "20px 20px";  // Reset padding
+      header.querySelector(".logo").style.fontSize = "2.5rem";  // Reset logo size
+    }
+  }
+</script>
   <style>
     /* General Styles */
     body {
