@@ -11,29 +11,6 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
-/* Media Queries for Mobile */
-@media (max-width: 768px) {
-  .container {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem; /* Reduce font size for better fit */
-  }
-
-  .some-element {
-    padding: 10px;
-    margin: 0; /* Prevent large margins */
-  }
-
-  /* Ensure images are responsive */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
 
 /* General Reset */
 * {
@@ -352,42 +329,31 @@ nav ul li a.active {
   font-size: 1.2rem;
 }
 
-/* Default (for desktop and larger screens) */
-.shopping-bag {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  z-index: 1000; /* Ensure it's on top of other elements */
-  cursor: pointer;
-}
-
-/* For mobile devices (max-width: 768px) */
+/* Shopping-bag for mobile devices */
 @media (max-width: 768px) {
   .shopping-bag {
-    position: fixed !important; /* Ensure the position is fixed */
-    bottom: 20px !important;    /* Move to the bottom */
-    right: 20px !important;     /* Align it to the right */
-    top: auto !important;       /* Disable the top positioning */
-    font-size: 20px !important; /* Adjust icon size for mobile */
-    z-index: 1000 !important;   /* Ensure it's on top */
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    top: auto !important;
+    font-size: 20px !important;
+    z-index: 1000 !important;
   }
-}
 
+  .shopping-bag i {
+    font-size: 2rem;
+  }
 
-.shopping-bag i {
-  font-size: 2rem;
-}
-
-.shopping-bag .bag-count {
-  background-color: #ff0000;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 8px;
-  font-size: 14px;
-  position: absolute;
-  top: -10px;
-  right: -10px;
+  .shopping-bag .bag-count {
+    background-color: #ff0000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 14px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
 }
 
 /* Checkout Button Style */
@@ -433,85 +399,6 @@ button#exit-modal:hover {
   color: #000;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-
-  /* Logo size adjusted for mobile */
-  header .logo {
-    font-size: 2rem; /* Slightly smaller for mobile */
-  }
-
-  .some-element {
-    padding: 10px;
-    margin: 0 auto; /* Make sure margins are balanced */
-  }
-}
-
-  /* Navigation */
-  nav ul {
-    flex-direction: column; /* Stack vertically */
-    gap: 10px; /* Add space between links */
-    padding: 0;
-    margin: 0;
-    width: 100%; /* Ensure nav takes full width */
-    text-align: center; /* Center links for better mobile UX */
-  }
-
-  nav ul li {
-    width: 100%;
-  }
-
-  nav ul li a {
-    padding: 15px; /* Add more padding for tap-friendly buttons */
-    display: block; /* Ensure the links take full width */
-    font-size: 1.2rem; /* Make links slightly larger */
-  }
-
-  /* Hero Section - Make text smaller for mobile */
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  /* Stack products vertically */
-  #product-row {
-    flex-direction: column;
-    align-items: center; /* Center products */
-  }
-
-  .product-row-item {
-    max-width: 100%; /* Full width for mobile */
-    margin-bottom: 20px; /* Space between stacked products */
-  }
-
-  /* YouTube Section Padding */
-  #youtube {
-    padding: 60px 20px; /* Adjust padding for mobile */
-  }
-
-  /* Contact Section Padding */
-  #contact {
-    padding: 60px 20px;
-    
-    /* Adjust padding for mobile */
-  }
-
-  /* Call-to-Action Button */
-  .cta-btn {
-    padding: 10px 30px;
-    font-size: 1rem; /* Adjust size for mobile */
-  }
-
-  /* Shopping Bag Icon - Resize for mobile */
-  .shopping-bag {
-    top: 15px;
-    right: 15px;
-    font-size: 20px;
-  }
-
-  .shopping-bag i {
-    font-size: 1.5rem;
-  }
-}
 /* Hidden class to hide elements by default */
 .hidden {
   display: none;
@@ -525,4 +412,107 @@ button#exit-modal:hover {
 /* Error message styling */
 .error-message {
   color: red;
+}
+
+/* Media Queries for iPhones (max-width: 375px) */
+@media (max-width: 375px) {
+  .hero-content h1 {
+    font-size: 2rem; /* Reduce for smaller iPhone screens */
+  }
+
+  .shopping-bag {
+    bottom: 20px; /* Stick to the bottom-right corner */
+    right: 20px;
+    top: auto;
+    font-size: 1.5rem;
+  }
+
+  nav ul li a {
+    padding: 10px; /* Smaller touch target */
+  }
+
+  /* Ensure images are responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Media Queries for Samsung (max-width: 360px) */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.8rem; /* Reduce for smaller Samsung screens */
+  }
+
+  .shopping-bag {
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.4rem;
+  }
+
+  nav ul li a {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* General Mobile Adjustments (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Navigation adjustments for mobile */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  #product-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-row-item {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Shopping bag adjustments */
+  .shopping-bag {
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+  }
+
+  .shopping-bag i {
+    font-size: 1.5rem;
+  }
+
+  #youtube, #contact {
+    padding: 60px 20px;
+  }
+
+  .cta-btn {
+    padding: 10px 30px;
+    font-size: 1rem;
+  }
 }
