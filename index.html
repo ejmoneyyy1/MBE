@@ -4,27 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motion Boyz Entertainment</title>
+  
+  <!-- External CSS Styles -->
   <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Lightbox CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="https://js.stripe.com/v3/"></script>
-  <script>
-  // JavaScript to make the navigation bar smaller when scrolling
-  window.onscroll = function() { scrollFunction() };
+  
+  <!-- Stripe JavaScript -->
+  <script src="https://js.stripe.com/v3/" defer></script>
+  
+  <script defer>
+    // JavaScript to make the navigation bar smaller when scrolling
+    window.onscroll = function() { scrollFunction() };
 
-  function scrollFunction() {
-    const header = document.querySelector("header");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      header.style.padding = "10px 10px";  // Shrink the padding
-      header.querySelector(".logo").style.fontSize = "1.5rem";  // Reduce logo size
-    } else {
-      header.style.padding = "20px 20px";  // Reset padding
-      header.querySelector(".logo").style.fontSize = "2.5rem";  // Reset logo size
+    function scrollFunction() {
+      const header = document.querySelector("header");
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        header.classList.add("scrolled");  // Add a class for the scrolled state
+      } else {
+        header.classList.remove("scrolled");  // Remove the class when not scrolled
+      }
     }
-  }
-</script>
-  <style>
+  </script>
+</head>
+
     /* General Styles */
     body {
       font-family: 'Poppins', sans-serif;
