@@ -30,21 +30,11 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      transition: padding 0.3s ease, font-size 0.3s ease; /* Added transition for smooth effect */
-    }
-
-    header.scrolled {
-      padding: 10px; /* When scrolled, reduce the padding */
     }
 
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
-      transition: font-size 0.3s ease; /* Smooth font size change */
-    }
-
-    header.scrolled .logo {
-      font-size: 1.5rem; /* Smaller logo when scrolled */
     }
 
     nav ul {
@@ -95,7 +85,7 @@
       top: -10px;
       right: -10px;
     }
-
+    
     /* Hero Section */
     #hero {
       height: 100vh;
@@ -312,45 +302,8 @@
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">Motion Boyz</div>
-    <nav>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#brand-badges">Brands</a></li>
-        <li><a href="#youtube">YouTube</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-count">3</span></a>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="hero-content">
-      <h1>Welcome to Motion Boyz Entertainment</h1>
-      <a href="#" class="cta-btn">Get Started</a>
-    </div>
-  </section>
-
-  <!-- Add JavaScript for Scroll Function -->
-  <script>
-    window.onscroll = function() { scrollFunction() };
-
-    function scrollFunction() {
-      const header = document.querySelector("header");
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    }
-  </script>
-
-</body>
-</html>
-
 
   <!-- Navigation Bar -->
   <header>
