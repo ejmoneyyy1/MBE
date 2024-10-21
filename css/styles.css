@@ -8,7 +8,6 @@ html, body {
   overflow-x: hidden;
 }
 
-
 /* General Reset */
 * {
   margin: 0;
@@ -23,26 +22,26 @@ body, html {
 
 /* Hero Section Styling */
 #hero {
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-size: cover;
   background-position: center;
   position: relative;
-  background-image: url('images/background1.jpg'); /* Initial image */
-  transition: background-image 1s ease-in-out; /* Smooth image transition */
-  background-attachment: fixed; /* Optional: for parallax effect */
+  background-image: url('images/background1.jpg');
+  transition: background-image 1s ease-in-out;
+  background-attachment: fixed;
 }
 
 .hero-content {
-  z-index: 2; /* Ensure content appears above the background */
+  z-index: 2;
   text-align: center;
   color: white;
 }
 
 h1, p {
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Add text shadow to make it readable */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 /* Fading Animation */
@@ -92,12 +91,22 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+  transition: padding 0.3s ease, font-size 0.3s ease;
+}
+
+header.scrolled {
+  padding: 10px;
 }
 
 header .logo {
   font-size: 2.5rem;
   font-weight: 900;
   color: #d4a373;
+  transition: font-size 0.3s ease;
+}
+
+header.scrolled .logo {
+  font-size: 1.5rem;
 }
 
 /* Badge container for alignment */
@@ -105,16 +114,16 @@ header .logo {
   position: relative;
   display: inline-block;
   padding: 20px;
-  background-color: #000; /* black background */
-  color: #fff; /* white text */
+  background-color: #000;
+  color: #fff;
   font-family: 'Arial', sans-serif;
   text-align: center;
 }
 
 .discontinued {
-  font-size: 1.2rem; /* Adjust the font size as needed */
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #ff00007b; /* Red to emphasize discontinued */
+  color: #ff00007b;
 }
 
 .badge-title {
@@ -148,7 +157,7 @@ nav ul li a.active {
 
 /* Hero Section */
 #hero {
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   background: url('images/background.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
@@ -201,7 +210,7 @@ nav ul li a.active {
   color: #000000;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 1px; /* Reduce the margin to close the gap */
+  margin-bottom: 1px;
 }
 
 /* Product Row */
@@ -264,8 +273,8 @@ nav ul li a.active {
 /* Modal Styles for the Shopping Cart */
 .modal {
   display: flex;
-  justify-content: center;  /* Centering modal */
-  align-items: center;      /* Centering modal vertically */
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 1001;
   left: 0;
@@ -273,7 +282,7 @@ nav ul li a.active {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);  /* Black background with opacity */
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px;
 }
 
@@ -282,37 +291,12 @@ nav ul li a.active {
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  width: 80%; /* Set a percentage width for responsiveness */
-  max-width: 500px; /* Limit the maximum width */
-  max-height: 80%; /* Add max height to avoid overflow */
-  overflow-y: auto; /* Enable scrolling if content exceeds modal height */
+  width: 80%;
+  max-width: 500px;
+  max-height: 80%;
+  overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  text-align: center; /* Center text and elements inside modal */
-}
-
-.modal img {
-  max-width: 30px; /* Limit the size of images */
-  height: auto;
-  margin-bottom: 15px;
-}
-
-/* Style for the trash icon (remove button) */
-.remove-btn {
-  background-color: transparent;
-  border: none;
-  color: #d4a373;
-  cursor: pointer;
-  font-size: 1.2rem;
-  margin-left: 10px;
-  transition: color 0.3s ease;
-}
-
-.remove-btn:hover {
-  color: #faedcd;
-}
-
-.remove-btn i {
-  font-size: 1.2rem;
+  text-align: center;
 }
 
 /* Shopping Bag Icon Styles */
@@ -385,21 +369,107 @@ button#exit-modal:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
 
-  /* Logo size adjusted for mobile */
-  header .logo {
-    font-size: 2rem; /* Slightly smaller for mobile */
+/* General mobile adjustment */
+@media (max-width: 425px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
   }
 
-  /* Navigation */
+  .shopping-bag {
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+  }
+  
+  nav ul li a {
+    padding: 10px;
+  }
+}
+
+/* iPhone 12/13/14 */
+@media (max-width: 390px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .shopping-bag {
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+  }
+
+  nav ul li a {
+    padding: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* iPhone SE */
+@media (max-width: 375px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .shopping-bag {
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+  }
+  
+  nav ul li a {
+    padding: 10px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Samsung Galaxy S21/S22 */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .shopping-bag {
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.4rem;
+  }
+
+  nav ul li a {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+
+  header .logo {
+    font-size: 2rem;
+  }
+
   nav ul {
-    flex-direction: column; /* Stack vertically */
-    gap: 10px; /* Add space between links */
+    flex-direction: column;
+    gap: 10px;
     padding: 0;
     margin: 0;
-    width: 100%; /* Ensure nav takes full width */
-    text-align: center; /* Center links for better mobile UX */
+    width: 100%;
+    text-align: center;
   }
 
   nav ul li {
@@ -407,67 +477,40 @@ button#exit-modal:hover {
   }
 
   nav ul li a {
-    padding: 15px; /* Add more padding for tap-friendly buttons */
-    display: block; /* Ensure the links take full width */
-    font-size: 1.2rem; /* Make links slightly larger */
+    padding: 15px;
+    font-size: 1.2rem;
   }
 
-  /* Hero Section - Make text smaller for mobile */
   .hero-content h1 {
     font-size: 2.5rem;
   }
 
-  /* Stack products vertically */
   #product-row {
     flex-direction: column;
-    align-items: center; /* Center products */
+    align-items: center;
   }
 
   .product-row-item {
-    max-width: 100%; /* Full width for mobile */
-    margin-bottom: 20px; /* Space between stacked products */
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 
-  /* YouTube Section Padding */
-  #youtube {
-    padding: 60px 20px; /* Adjust padding for mobile */
-  }
-
-  /* Contact Section Padding */
-  #contact {
+  #youtube, #contact {
     padding: 60px 20px;
-    
-    /* Adjust padding for mobile */
   }
 
-  /* Call-to-Action Button */
   .cta-btn {
     padding: 10px 30px;
-    font-size: 1rem; /* Adjust size for mobile */
+    font-size: 1rem;
   }
 
-  /* Shopping Bag Icon - Resize for mobile */
   .shopping-bag {
-    top: 15px;
-    right: 15px;
-    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5rem;
   }
 
   .shopping-bag i {
     font-size: 1.5rem;
   }
-}
-/* Hidden class to hide elements by default */
-.hidden {
-  display: none;
-}
-
-/* Success message styling */
-.success-message {
-  color: green;
-}
-
-/* Error message styling */
-.error-message {
-  color: red;
 }
