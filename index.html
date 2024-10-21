@@ -313,6 +313,44 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">Motion Boyz</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#brand-badges">Brands</a></li>
+        <li><a href="#youtube">YouTube</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span id="cart-count">3</span></a>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Welcome to Motion Boyz Entertainment</h1>
+      <a href="#" class="cta-btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Add JavaScript for Scroll Function -->
+  <script>
+    window.onscroll = function() { scrollFunction() };
+
+    function scrollFunction() {
+      const header = document.querySelector("header");
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+  </script>
+
+</body>
+</html>
+
 
   <!-- Navigation Bar -->
   <header>
