@@ -4,37 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motion Boyz Entertainment</title>
-  
-  <!-- External CSS Styles -->
   <link rel="stylesheet" href="css/styles.css">
-  
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  
-  <!-- Lightbox CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-  
-  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  
-  <!-- Stripe JavaScript -->
-  <script src="https://js.stripe.com/v3/" defer></script>
-  
-  <script defer>
-    // JavaScript to make the navigation bar smaller when scrolling
-    window.onscroll = function() { scrollFunction() };
-
-    function scrollFunction() {
-      const header = document.querySelector("header");
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        header.classList.add("scrolled");  // Add a class for the scrolled state
-      } else {
-        header.classList.remove("scrolled");  // Remove the class when not scrolled
-      }
-    }
-  </script>
-</head>
-
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
     /* General Styles */
     body {
       font-family: 'Poppins', sans-serif;
@@ -55,11 +30,21 @@
       top: 0;
       width: 100%;
       z-index: 1000;
+      transition: padding 0.3s ease, font-size 0.3s ease; /* Added transition for smooth effect */
+    }
+
+    header.scrolled {
+      padding: 10px; /* When scrolled, reduce the padding */
     }
 
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
+      transition: font-size 0.3s ease; /* Smooth font size change */
+    }
+
+    header.scrolled .logo {
+      font-size: 1.5rem; /* Smaller logo when scrolled */
     }
 
     nav ul {
@@ -110,7 +95,7 @@
       top: -10px;
       right: -10px;
     }
-    
+
     /* Hero Section */
     #hero {
       height: 100vh;
@@ -327,7 +312,6 @@
     }
   </style>
 </head>
-
 <body>
 
   <!-- Navigation Bar -->
