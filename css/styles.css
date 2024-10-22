@@ -340,6 +340,40 @@ nav ul li a.active {
   right: -10px;
 }
 
+/* Responsive Design for Small Devices */
+@media (max-width: 576px) {
+  .shopping-bag {
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+  }
+  .shopping-bag i {
+    font-size: 1.5rem;
+  }
+  .shopping-bag .bag-count {
+    top: -5px;
+    right: -5px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive Design for Medium Devices */
+@media (max-width: 768px) {
+  .shopping-bag {
+    top: 15px;
+    right: 15px;
+    font-size: 22px;
+  }
+  .shopping-bag i {
+    font-size: 1.75rem;
+  }
+  .shopping-bag .bag-count {
+    top: -7px;
+    right: -7px;
+    font-size: 0.9rem;
+  }
+}
+
 /* Checkout Button Style */
 .checkout-btn {
   padding: 15px 30px;
