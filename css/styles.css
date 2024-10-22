@@ -374,6 +374,22 @@ nav ul li a.active {
   }
 }
 
+/* Additional adjustments for very small devices */
+@media (max-width: 375px) {
+  .shopping-bag {
+    top: 5px;
+    right: 5px;
+    font-size: 18px;
+  }
+  .shopping-bag i {
+    font-size: 1.25rem;
+  }
+  .shopping-bag .bag-count {
+    top: -3px;
+    right: -3px;
+    font-size: 0.7rem;
+  }
+}
 /* Checkout Button Style */
 .checkout-btn {
   padding: 15px 30px;
